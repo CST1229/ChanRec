@@ -1,6 +1,6 @@
 # ChanRec
 
-An IRC **chan**nel **rec**ording (and other miscellaneous stuff) bot, made using <a href="https://nodejs.org/">node.js</a> and the <a href="https://www.npmjs.com/package/irc/">node-irc</a> library.
+An IRC **chan**nel **rec**order (and other miscellaneous stuff) bot, made using <a href="https://nodejs.org/">node.js</a> and the <a href="https://www.npmjs.com/package/irc/">node-irc</a> library.
 
 ## Features
 - Logs most actions in channels
