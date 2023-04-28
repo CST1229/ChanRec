@@ -1,0 +1,29 @@
+{
+	"name": "chanrec",
+	"version": "1.0.0",
+	"description": "IRC channel recorder (and more) bot",
+	"private": true,
+	"license": "MIT",
+	"type": "module",
+	"author": "CST1229",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node src/index.js",
+		"loop": "for /L %N in () do node src/index.js",
+		"clearRegurg": "node scripts/regurgitator-generate.js",
+		"generateRegurg": "node scripts/regurgitator-generate.js",
+		"convertJSON": "node scripts/convertJSON.js",
+		"mergeArchives": "node scripts/archivesMergeTool.js",
+		"format": "prettier -w ./src"
+	},
+	"dependencies": {
+		"@replit/database": "^2.0.1",
+		"better-sqlite3": "^8.3.0",
+		"dotenv": "^16.0.3",
+		"express": "^4.17.3",
+		"irc": "github:cst1229/node-irc#master"
+	},
+	"devDependencies": {
+		"prettier": "^2.8.8"
+	}
+}
