@@ -34,6 +34,7 @@ Each instance of ChanRec is only for logging one channel.
 	- `CHANREC_URL` - A URL to the bot's site (used for commands like !help).
 		Should not have a trailing slash.
 - `npm start`
+- Send `!help` in the bot's channel or DMs in order to get a link to the site.
 
 ## Additional Scripts
 - `npm run format` - Formats the source code.
