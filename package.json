@@ -21,7 +21,7 @@
 		"better-sqlite3": "^8.3.0",
 		"dotenv": "^16.0.3",
 		"express": "^4.17.3",
-		"irc": "github:cst1229/node-irc#master"
+		"irc": "^0.5.2"
 	},
 	"devDependencies": {
 		"prettier": "^2.8.8"
