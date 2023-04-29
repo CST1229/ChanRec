@@ -49,7 +49,7 @@ import doRegurgitator, {
 } from "./regurgitator-server.js";
 const hasGenerator = regurgTypes && regurgTypes.length;
 
-if (process.argv.includes("--autorestart"))
+if (process.env.CHANREC_AUTORESTART)
 	setTimeout(async () => {
 		throw new Error("Automatic restart");
 	}, 3 * 60 * 60 * 1000);
@@ -80,7 +80,7 @@ const client = new irc.Client("irc.libera.chat", firstNick, {
 	showErrors: true,
 	autoRejoin: false,
 	autoConnect: true,
-	channels: [CHANNEL],
+	channels: [],
 	secure: false,
 	selfSigned: false,
 	certExpired: false,
@@ -188,6 +188,7 @@ client.addListener("error", function (message) {
 
 client.addListener("registered", function (message) {
 	console.log("Connected!");
+	client.join(CHANNEL);
 	registerEvents();
 	setInterval(() => {
 		if (!joined) return;

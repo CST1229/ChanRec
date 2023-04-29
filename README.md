@@ -33,6 +33,7 @@ Each instance of ChanRec is only for logging one channel.
 		Additionally, all channel operators are considered admins.
 	- `CHANREC_URL` - A URL to the bot's site (used for commands like !help).
 		Should not have a trailing slash.
+	- `CHANREC_AUTORESTART` - Boolean to stop the bot after a few hours. Intended to be used with `npm run loop`.
 - `npm start`
 - Send `!help` in the bot's channel or DMs in order to get a link to the site.
 
