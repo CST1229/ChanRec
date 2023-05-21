@@ -1,6 +1,6 @@
 {
 	"name": "chanrec",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "IRC channel recorder (and more) bot",
 	"private": true,
 	"license": "MIT",

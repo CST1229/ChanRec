@@ -39,6 +39,7 @@ const CHANNEL = process.env.CHANREC_CHANNEL;
 
 import irc from "irc";
 import express from "express";
+import fs from "node:fs/promises";
 import path from "node:path";
 
 import db, {getKey, setKey} from "./sqlitedb.js";
@@ -160,7 +161,8 @@ let totalOks = db
 
 let currentChannel = CHANNEL;
 
-let okLocked = !!getKey("okLocked");
+// let okLocked = !!getKey("okLocked");
+let okLock = false;
 
 const pingResponses = () => [
 	"Pong!",
@@ -494,7 +496,8 @@ function registerEvents() {
 				}
 			}
 
-			if (!isPM && text === "!oklock") {
+			// if (!isPM && text === "!oklock") {
+			if (false) {
 				okLocked = !okLocked;
 				setKey("okLocked", +okLocked);
 				if (okLocked) {
@@ -691,7 +694,8 @@ function registerEvents() {
 				okCount++;
 				totalOks++;
 				setKey("okCount", okCount);
-				if (okLocked) {
+				// if (okLocked) {
+				if (false) {
 					if (
 						text.includes("ticket") &&
 						sender.toLowerCase().includes("pkmnq")
@@ -1189,7 +1193,7 @@ app.get("/help", (req, res) => {
 	<ul>
 		<li><code>!message (text)</code> - Says the previous !message.</li>
 		<li><code>!ok</code> - Get the number of times someone said OK. Also viewable through the transcript page.</li>
-		<li><code>!oklock</code> - Toggles OK lock (sends OK count when someone says OK). Only works in channels.</li>
+		<!-- <li><code>!oklock</code> - Toggles OK lock (sends OK count when someone says OK). Only works in channels.</li> -->
 		<li><code>!generate (user)</code> - Generates a nonexistent message from a user. See also the <a href="generator">Message Generator</a>.</li>
 	</ul>
 	<h2>Operator Only</h2>
@@ -1455,7 +1459,11 @@ app.get("/db", async (req, res) => {
 	);
 });
 app.get("/db-sqlite", async (req, res) => {
-	res.status(200).send(await fs.readFile("./db/db.sqlite"));
+	try {
+		res.status(200).send(await fs.readFile("./db/database.sqlite"));
+	} catch(e) {
+		res.status(500).send("error!!!");
+	}
 });
 
 doRegurgitator(wrapSite, app, filterHTML);
