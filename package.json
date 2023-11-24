@@ -18,7 +18,7 @@
 	},
 	"dependencies": {
 		"@replit/database": "^2.0.1",
-		"better-sqlite3": "^8.3.0",
+		"better-sqlite3": "^8.4.0",
 		"dotenv": "^16.0.3",
 		"express": "^4.17.3",
 		"irc": "github:CST1229/node-irc#master"

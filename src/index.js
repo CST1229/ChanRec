@@ -53,7 +53,7 @@ const hasGenerator = regurgTypes && regurgTypes.length;
 if (process.env.CHANREC_AUTORESTART)
 	setTimeout(async () => {
 		throw new Error("Automatic restart");
-	}, 3 * 60 * 60 * 1000);
+	}, 4 * 60 * 60 * 1000);
 
 import crypto from "crypto";
 
@@ -325,8 +325,6 @@ function registerEvents() {
 
 				const transcriptId = _text.substring(6) || "";
 
-				say(sender, `Generating edit link, please wait...`);
-
 				const o =
 					transcriptId === ""
 						? getCurrentTranscript.get()
@@ -361,9 +359,9 @@ function registerEvents() {
 					say(
 						sender,
 						`One-time link to edit the transcript "${
-							transcriptObj.name
+							o.name
 						}" (started at ${new Date(
-							transcriptObj.start
+							o.start
 						).toLocaleString("en-US", {
 							timeZone: "UTC",
 							hour12: false,
