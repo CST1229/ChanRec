@@ -5,7 +5,7 @@ An IRC **chan**nel **rec**order (and other miscellaneous stuff) bot, made using 
 ## Features
 - Logs most actions in channels
 - Users can disable logging individual messages (`= message`) and their messages (`!enable`, `!disable`)
-- OK counter and OK lock (sends the OK count each time someone says OK) (`!ok`, `!oklock`)
+- OK counter <!--and OK lock (sends the OK count each time someone says OK)--> (`!ok`<!--, `!oklock`-->)
 - Transcript splitting and editing (`!split`, `!edit`, `!clear`)
 - `!message` command, stolen shamelessly from [RoboTop](https://robotop.xyz)
 - Can generate messages from transcripts using a Markov chain. Why not?
